@@ -94,6 +94,9 @@ public class Driver {
 				dsg.insertSyn(input3);
 			}
 		}
-		
+
+		exact_match exm = new exact_match();
+		exm.accept(dsg);
+
 	}  // end public static void main
     }  // end public class Driver

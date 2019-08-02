@@ -1,0 +1,2 @@
+CPU:processor
+battle:fight, engagement, conflict
