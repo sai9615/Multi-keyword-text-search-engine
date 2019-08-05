@@ -1,5 +1,4 @@
-
-package multiThreadedHS.driver;
+package troubleShootSearch.driver;
 
 import  troubleShootSearch.util.Results;
 import  troubleShootSearch.util.MyLogger;
@@ -12,7 +11,7 @@ import  troubleShootSearch.visitors.semantic_match;
 import java.util.ArrayList;
 
 /**
- * @author AuthorName
+ * @author Sai Milind Tammisetti
  *
  */
     
@@ -27,19 +26,8 @@ import java.util.ArrayList;
 	     */
 
 	    // FIXME: update this if statement for this assignment
-public class Driver {
-	
-	public static void main(String[] args) {
-	    
-	    /*
-	     * As the build.xml specifies the arguments as argX, in case the
-	     * argument value is not given java takes the default value specified in
-	     * build.xml. To avoid that, below condition is used
-	     */
 
-	    // FIXME: update this if statement for this assignment
-
-		if ( (args.length != 5) || args[0].equals("${arg0}") || args[1].equals("${arg1}") || args[2].equals("${arg2}")|| args[3].equals("${arg3}") || args[4].equals("${arg4}")) {
+		if ( (args.length != 4) || args[0].equals("${arg0}") || args[1].equals("${arg1}") || args[2].equals("${arg2}")|| args[3].equals("${arg3}")) {
 
 			System.err.println("Error: Incorrect number of arguments. Program accepts 5 argumnets.");
 			System.exit(0);
@@ -47,9 +35,8 @@ public class Driver {
 
 		String inputf1 = args[0];
 		String inputf2 = args[1];
-		String inputf3 = args[2];
-		String outputf = args[3];
-		String Debug = args[4];
+		String outputf = args[2];
+		String Debug = args[3];
 
 		MyLogger obj = new MyLogger();
 
@@ -80,7 +67,7 @@ public class Driver {
 		}
 
 		String input2;
-		FileProcessor fps = new FileProcessor(inputf2);
+		FileProcessor fps = new FileProcessor("tech1.txt");
 		while ((input2 = fps.readLine()) != null) {
 			{
 				dsg.insertTech(input2);
@@ -88,15 +75,37 @@ public class Driver {
 		}
 
 		String input3;
-		FileProcessor fpp = new FileProcessor(inputf3);
-		while ((input3 = fpp.readLine()) != null) {
+		FileProcessor fps3 = new FileProcessor("tech2.txt");
+		while ((input3 = fps3.readLine()) != null) {
 			{
-				dsg.insertSyn(input3);
+				dsg.insertTech2(input3);
 			}
 		}
 
+		String input4;
+		FileProcessor fps4 = new FileProcessor("tech3.txt");
+		while ((input4 = fps4.readLine()) != null) {
+			{
+				dsg.insertTech3(input4);
+			}
+		}
+
+		String input5;
+		FileProcessor fpp = new FileProcessor(inputf2);
+		while ((input5 = fpp.readLine()) != null) {
+				dsg.insertSyn(input5);
+			}
+		
+
 		exact_match exm = new exact_match();
+		naive_stemming_match nsm = new naive_stemming_match();
+		semantic_match sm = new semantic_match();
 		exm.accept(dsg);
+		nsm.accept(dsg);
+		sm.accept(dsg);
+		
+		results.writeResults();
+		results.closeMyFile();
 
 	}  // end public static void main
     }  // end public class Driver

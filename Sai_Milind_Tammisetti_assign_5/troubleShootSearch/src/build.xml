@@ -1,4 +1,4 @@
-<project name="multiThreadedHS" default="compile_all" basedir="..">
+<project name="troubleShootSearch" default="compile_all" basedir="..">
 
   <property name="BUILD.compiler"       value="modern"/>
   <property name="src"                  value="src"/>
@@ -8,7 +8,7 @@
   <target name="all" depends="compile_all"/>
 
   <target name="compile_all"
-          depends="multiThreadedHS"/>
+          depends="troubleShootSearch"/>
 
   <target name="clean">
        <delete dir="${BUILD}"/>
@@ -22,9 +22,9 @@
 
  <target name="jar">
         <mkdir dir="${BUILD}/jar"/>
-        <jar destfile="${BUILD}/jar/multiThreadedHS.jar" basedir="${BUILD}/classes">
+        <jar destfile="${BUILD}/jar/troubleShootSearch.jar" basedir="${BUILD}/classes">
             <manifest>
-                <attribute name="Main-Class" value="multiThreadedHS.driver.Driver"/>
+                <attribute name="Main-Class" value="troubleShootSearch.driver.Driver"/>
             </manifest>
         </jar>
     </target>
@@ -33,9 +33,9 @@
   <!-- * means all files in the current directory -->
   <!-- for just java files use *.java -->
 
-  <target name="multiThreadedHS" depends="prepare">
+  <target name="troubleShootSearch" depends="prepare">
     <javac includeantruntime="false" srcdir="${src}"
-	           includes="multiThreadedHS/**"
+	           includes="troubleShootSearch/**"
            excludes="**/package.html"
            destdir="${classes}"
            classpath="${classes}"
@@ -45,10 +45,13 @@
   </target>
 
 <target name="run" depends="jar">
-        <java jar="${BUILD}/jar/multiThreadedHS.jar"  fork="true">
+        <java jar="${BUILD}/jar/troubleShootSearch.jar"  fork="true">
             <!-- Specifying a line of arguments rather than a single argument. -->
             <!-- The arguments can then be parsed in code. -->
-            <arg line="${args}"/>
+            <arg value="${arg0}"/>
+            <arg value="${arg1}"/>
+            <arg value="${arg2}"/>
+            <arg value="${arg3}"/>
         </java>
     </target>
 

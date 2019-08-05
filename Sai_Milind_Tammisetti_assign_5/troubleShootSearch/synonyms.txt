@@ -1,2 +1,8 @@
 CPU:processor
 battle:fight, engagement, conflict
+come:advance, approach, arrive
+destroyed:ruin, demolished, raze, wasted
+kill:slay, executed, assassinated, murder
+fly:soar, hover, flit, wing, flee, waft, glide
+keep:hold, retain, withhold, preserve, maintain
+run:dash, escape, elope, hasten

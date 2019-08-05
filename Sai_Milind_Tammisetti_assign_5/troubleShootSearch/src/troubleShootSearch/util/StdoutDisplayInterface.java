@@ -1,4 +1,4 @@
-package multiThreadedHS.util;
+package troubleShootSearch.util;
 
 public interface StdoutDisplayInterface {
     public void writeToStdout(String value);

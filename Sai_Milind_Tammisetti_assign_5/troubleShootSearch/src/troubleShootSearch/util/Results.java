@@ -1,4 +1,4 @@
-package multiThreadedHS.util;
+package troubleShootSearch.util;
 
 import java.io.BufferedWriter;
 import java.util.ArrayList;
@@ -7,7 +7,6 @@ import java.io.File;
 
     public class Results implements FileDisplayInterface, StdoutDisplayInterface {
         private ArrayList<String> result = new ArrayList();
-        private ArrayList<Integer> res = new ArrayList();
         private FileWriter fw;
         private BufferedWriter bw;
 
@@ -73,27 +72,8 @@ import java.io.File;
 
         public void storeNewResult(String value){
             // System.out.println("stored the result : "+value);
-            String val = value + "\n";
-            result.add(val);
-        }
-
-        /**
-         * Used to store unsorted values passed by thread.
-         * @param value - value as a string.
-         */
-
-        public void storeResult(String value){
-            // System.out.println("stored the result : "+value);
-             res.add(Integer.parseInt(value));
-        }
-
-        /**
-         * Used to return the res arraylist.
-         * @return - res arraylist.
-         */
-
-        public ArrayList<Integer> getResult() {
-            return res;
+            value = value + "\n";
+            result.add(value);
         }
 
         /**
