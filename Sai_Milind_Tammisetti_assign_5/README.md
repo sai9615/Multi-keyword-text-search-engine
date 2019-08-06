@@ -28,7 +28,7 @@ Description: Compiles your code and generates .class files inside the BUILD fold
 ## Instruction to run:
 
 ####Command: 
-ant -buildfile troubleShootSearch/src/build.xml run -Darg0=<userInput.txt> -Darg1=<synonyms.txt> -Darg1=<outputFile.txt> -Darg2=<Logger-Value> 
+ant -buildfile troubleShootSearch/src/build.xml run -Darg0=<userInput.txt> -Darg1=<synonyms.txt> -Darg2=<outputFile.txt> -Darg3=<Logger-Value> 
 
 Example:
 
