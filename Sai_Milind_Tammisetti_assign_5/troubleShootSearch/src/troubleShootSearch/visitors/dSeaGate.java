@@ -1,7 +1,7 @@
 package troubleShootSearch.visitors;
 
 import troubleShootSearch.util.Results;
-
+import troubleShootSearch.util.MyLogger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.*;
@@ -11,35 +11,65 @@ public class dSeaGate implements visitor {
 
     public   Results res;
     public   ArrayList<String> myui = new ArrayList<String>();
+    /**
+     * Used to insert user input.
+     * @param newValue - a string.
+     */
     public void insertUI(String newValue) {
         myui.add(newValue);
     }
 
     public   ArrayList<String> mytech = new ArrayList<String>();
+    /**
+     * Used to insert technical words.
+     * @param newValue - a string.
+     */
     public void insertTech(String newValue) {
         mytech.add(newValue);
     }
 
     public   ArrayList<String> mytech2 = new ArrayList<String>();
+    /**
+     * Used to insert technical words.
+     * @param newValue - a string.
+     */
     public void insertTech2(String newValue) {
         mytech2.add(newValue);
     }
 
     public   ArrayList<String> mytech3 = new ArrayList<String>();
+    /**
+     * Used to insert technical words.
+     * @param newValue - a string.
+     */
     public void insertTech3(String newValue) {
         mytech3.add(newValue);
     }
 
     public   ArrayList<String> syn = new ArrayList<String>();
+    /**
+     * Used to insert synonyms in arraylist.
+     * @param newValue - a string.
+     */
     public void insertSyn(String newValue) {
         syn.add(newValue);
     }
 
+    /**
+     * Constructor
+     * @param results - a result object.
+     */
     public dSeaGate(Results results){
+        MyLogger.writeMessage("In constructor "+ getClass().getName(), MyLogger.DebugLevel.CONSTRUCTOR);
         res = results;
     }
 
+    /**
+     * Implement exact match policy.
+     * @param exm - exact match object.
+     */
 public void visit(exact_match exm){
+    res.writeToStdout(" \n______________________EXACT-MATCH_______________________");
     res.storeNewResult("______________________EXACT-MATCH_______________________");
         for(int i=0; i<mytech.size(); i++){
             String str =  mytech.get(i);
@@ -64,6 +94,7 @@ public void visit(exact_match exm){
                             //System.out.println("We are same");
                             count++;
                             if(count == mylen){
+                                res.writeToStdout(mytech.get(i));
                                 res.storeNewResult(mytech.get(i));
                                 break;
                             }
@@ -76,7 +107,12 @@ public void visit(exact_match exm){
         }
     }
 
+    /**
+     * Implement naive_stemming_match policy.
+     * @param nsm - naive_stemming_match object.
+     */
     public void visit(naive_stemming_match nsm){
+         res.writeToStdout(" \n______________________NAIVE-STEMMING-MATCH_______________________");
         res.storeNewResult(" \n______________________NAIVE-STEMMING-MATCH_______________________");
         for(int i=0; i<mytech2.size(); i++){
             String str =  mytech2.get(i);
@@ -97,7 +133,7 @@ public void visit(exact_match exm){
                 int count=0;
                 for(int len=0; len<words.size(); len++){
                         if(uiword.get(0).equals(words.get(len))){
-                            //System.out.println("We are same");
+                                res.writeToStdout(mytech2.get(i));
                                 res.storeNewResult(mytech2.get(i));
                                 break;
                             } else {
@@ -107,7 +143,12 @@ public void visit(exact_match exm){
         }
     }
 
+    /**
+     * Implement semantic_matchh policy.
+     * @param sm - semantic_match object.
+     */
     public void visit(semantic_match sm){
+        res.writeToStdout("\n______________________SEMANTIC-MATCH_______________________");
         res.storeNewResult("\n______________________SEMANTIC-MATCH_______________________");
         //System.out.println(mytech3);
         int ucount=0;
@@ -168,22 +209,25 @@ public void visit(exact_match exm){
                             }
                             if (uiword.get(len1).equals(words.get(len))) {
                                 count++;
-                                System.out.println("a" + count + "word is " + words.get(len));
+                               // System.out.println("a" + count + "word is " + words.get(len));
                                 if (count == mylen) {
+                                    res.writeToStdout(mytech3.get(i));
                                     res.storeNewResult(mytech3.get(i));
                                     break;
                                 }
                             } else if (keys.contains(words.get(len)) && test.contains(uiword.get(len1))) {
                                 count++;
-                                 System.out.println("b" + count + "word is " + words.get(len));
+                                // System.out.println("b" + count + "word is " + words.get(len));
                                 if (count == mylen) {
+                                    res.writeToStdout(mytech3.get(i));
                                     res.storeNewResult(mytech3.get(i));
                                     break;
                                 }
                             } else if (test.contains(words.get(len)) && keys.contains(uiword.get(len1))) {
                                 count++;
-                                 System.out.println("c" + count + "word is " + words.get(len));
+                                // System.out.println("c" + count + "word is " + words.get(len));
                                 if (count == mylen) {
+                                    res.writeToStdout(mytech3.get(i));
                                     res.storeNewResult(mytech3.get(i));
                                     break;
                                 }

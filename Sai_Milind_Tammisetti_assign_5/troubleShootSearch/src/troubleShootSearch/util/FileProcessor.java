@@ -21,6 +21,7 @@ public class FileProcessor {
                 System.out.println("opened the file");
             } catch (Exception e) {
                 MyLogger.writeMessage(getClass().getName()+" can't open the file "+e.toString(), MyLogger.DebugLevel.ERROR);
+                MyLogger.writeMessage(getClass().getName()+" can't open the file "+e.toString(), MyLogger.DebugLevel.FILEPROCESSOR);
                 System.exit(0);
             }
         }
@@ -40,6 +41,7 @@ public class FileProcessor {
                 }
             } catch (Exception e) {
                 MyLogger.writeMessage(getClass().getName()+" can't read the file "+e.toString(), MyLogger.DebugLevel.ERROR);
+                MyLogger.writeMessage(getClass().getName()+" can't read the file "+e.toString(), MyLogger.DebugLevel.FILEPROCESSOR);
                 System.exit(0);
             }
             closeMyFile();
@@ -54,6 +56,7 @@ public class FileProcessor {
                 scn.close();
             } catch (Exception e) {
                 MyLogger.writeMessage(getClass().getName()+" Problem in closing the file "+e.toString(), MyLogger.DebugLevel.ERROR);
+                MyLogger.writeMessage(getClass().getName()+" can't close the file "+e.toString(), MyLogger.DebugLevel.FILEPROCESSOR);
                 System.exit(0);
             }
         }
