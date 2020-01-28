@@ -1,5 +1,5 @@
 
-package troubleShootSearch.util;
+package textSearch.util;
 
 public class MyLogger{
 

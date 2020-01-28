@@ -1,4 +1,4 @@
-package troubleShootSearch.util;
+package textSearch.util;
 
 import java.io.BufferedWriter;
 import java.util.ArrayList;

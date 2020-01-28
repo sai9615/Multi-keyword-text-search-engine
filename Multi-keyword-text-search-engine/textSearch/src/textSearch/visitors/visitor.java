@@ -1,4 +1,4 @@
-package troubleShootSearch.visitors;
+package textSearch.visitors;
 
 interface visitor {
     void visit(exact_match exm);

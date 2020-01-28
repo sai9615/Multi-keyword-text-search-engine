@@ -1,4 +1,4 @@
-<project name="troubleShootSearch" default="compile_all" basedir="..">
+<project name="textSearch" default="compile_all" basedir="..">
 
   <property name="BUILD.compiler"       value="modern"/>
   <property name="src"                  value="src"/>
@@ -8,7 +8,7 @@
   <target name="all" depends="compile_all"/>
 
   <target name="compile_all"
-          depends="troubleShootSearch"/>
+          depends="textSearch"/>
 
   <target name="clean">
        <delete dir="${BUILD}"/>
@@ -22,9 +22,9 @@
 
  <target name="jar">
         <mkdir dir="${BUILD}/jar"/>
-        <jar destfile="${BUILD}/jar/troubleShootSearch.jar" basedir="${BUILD}/classes">
+        <jar destfile="${BUILD}/jar/textSearch.jar" basedir="${BUILD}/classes">
             <manifest>
-                <attribute name="Main-Class" value="troubleShootSearch.driver.Driver"/>
+                <attribute name="Main-Class" value="textSearch.driver.Driver"/>
             </manifest>
         </jar>
     </target>
@@ -33,9 +33,9 @@
   <!-- * means all files in the current directory -->
   <!-- for just java files use *.java -->
 
-  <target name="troubleShootSearch" depends="prepare">
+  <target name="textSearch" depends="prepare">
     <javac includeantruntime="false" srcdir="${src}"
-	           includes="troubleShootSearch/**"
+	           includes="textSearch/**"
            excludes="**/package.html"
            destdir="${classes}"
            classpath="${classes}"
@@ -45,7 +45,7 @@
   </target>
 
 <target name="run" depends="jar">
-        <java jar="${BUILD}/jar/troubleShootSearch.jar"  fork="true">
+        <java jar="${BUILD}/jar/textSearch.jar"  fork="true">
             <!-- Specifying a line of arguments rather than a single argument. -->
             <!-- The arguments can then be parsed in code. -->
             <arg value="${arg0}"/>

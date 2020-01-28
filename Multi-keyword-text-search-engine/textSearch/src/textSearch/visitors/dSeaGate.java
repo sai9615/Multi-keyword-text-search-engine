@@ -1,7 +1,7 @@
-package troubleShootSearch.visitors;
+package textSearch.visitors;
 
-import troubleShootSearch.util.Results;
-import troubleShootSearch.util.MyLogger;
+import textSearch.util.Results;
+import textSearch.util.MyLogger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.*;

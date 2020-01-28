@@ -1,12 +1,12 @@
-package troubleShootSearch.driver;
+package textSearch.driver;
 
-import  troubleShootSearch.util.Results;
-import  troubleShootSearch.util.MyLogger;
-import  troubleShootSearch.util.FileProcessor;
-import  troubleShootSearch.visitors.dSeaGate;
-import  troubleShootSearch.visitors.exact_match;
-import  troubleShootSearch.visitors.naive_stemming_match;
-import  troubleShootSearch.visitors.semantic_match;
+import  textSearch.util.Results;
+import  textSearch.util.MyLogger;
+import  textSearch.util.FileProcessor;
+import  textSearch.visitors.dSeaGate;
+import  textSearch.visitors.exact_match;
+import  textSearch.visitors.naive_stemming_match;
+import  textSearch.visitors.semantic_match;
 
 import java.util.ArrayList;
 
