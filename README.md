@@ -1,4 +1,4 @@
-## Multi-keyword Text Search Engine
+# Multi-keyword Text Search Engine
 
 -----------------------------------------------------------------------
 -----------------------------------------------------------------------
@@ -10,7 +10,7 @@ Following are the commands and the instructions to run ANT on your project.
 -----------------------------------------------------------------------
 ## Instruction to clean:
 
-####Command: 
+#### Command: 
 ant -buildfile textSearch/src/build.xml clean
 
 Description: It cleans up all the .class files that were generated when you
@@ -19,15 +19,14 @@ compiled your code.
 -----------------------------------------------------------------------
 ## Instruction to compile:
 
-####Command: ant -buildfile textSearch/src/build.xml all
+#### Command: ant -buildfile textSearch/src/build.xml all
 
 Description: Compiles your code and generates .class files inside the BUILD folder.
 
 -----------------------------------------------------------------------
 ## Instruction to run:
 
-####Command: 
-ant -buildfile textSearch/src/build.xml run -Darg0=<userInput.txt> -Darg1=<synonyms.txt> -Darg2=<outputFile.txt> -Darg3=<Logger-Value> 
+#### Command: ant -buildfile textSearch/src/build.xml run -Darg0=<userInput.txt> -Darg1=<synonyms.txt> -Darg2=<outputFile.txt> -Darg3=<Logger-Value> 
 
 Example:
 
